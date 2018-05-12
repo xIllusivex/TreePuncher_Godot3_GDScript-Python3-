@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 44.0836
 
-[node name="Trunk" type="Node2D"]
+[node name="Trunk" type="Node2D" index="0"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -73,5 +73,14 @@ flip_h = true
 position = Vector2( 0.311688, 0 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
