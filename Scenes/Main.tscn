@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Trunk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/skybox_sideHills.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/dirt_grass.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node" index="0"]
+
+script = ExtResource( 1 )
+trunkScene = ExtResource( 2 )
+
+[node name="BG" type="Sprite" parent="." index="0"]
+
+position = Vector2( 570, 660 )
+scale = Vector2( 2.54401, 2.57663 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material" ]
+
+[node name="Ground" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 288, 1152 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tile" type="Sprite" parent="Ground" index="0"]
+
+position = Vector2( -64, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile2" type="Sprite" parent="Ground" index="1"]
+
+position = Vector2( 64, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tile3" type="Sprite" parent="Ground" index="2"]
+
+position = Vector2( 192, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile4" type="Sprite" parent="Ground" index="3"]
+
+position = Vector2( -192, 0 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player" parent="." index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 544, 800 )
+
+[node name="FirstTrunkPos" type="Position2D" parent="." index="3"]
+
+position = Vector2( 352, 896 )
+
+
