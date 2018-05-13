@@ -7,14 +7,18 @@ onready var grave = $Grave
 onready var timeLeft = $TimeLeft
 onready var player = $Player
 onready var timer = $Timer
+onready var scoreText = $ScoreText
+
 
 var lastSpawnPos
 var lastHasAxe= false
 var lastAxeRight = false
 var trunks = []
 var dead = false
+var score = 0
 
 func _ready():
+	scoreText.text = "Score: " + str(score)
 	lastSpawnPos = firstTrunkPos.position
 	spawnFirstTrunks()
 
@@ -54,7 +58,8 @@ func punchTree(fromRight):
 		else:
 			lastHasAxe = false
 	addTrunk(lastHasAxe, lastAxeRight)
-
+	score += 1
+	scoreText.text = "Score: " + str(score)
 	trunks[0].remove(fromRight)
 	trunks.pop_front()
 	for trunk in trunks:
