@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/character/zombie_head.png" type="Texture" id=2]
@@ -7,9 +7,21 @@
 [ext_resource path="res://Assets/Sprites/character/zombie_leg.png" type="Texture" id=5]
 [ext_resource path="res://Animations/Punch.tres" type="Animation" id=6]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.3513, 94.6491 )
+
+[node name="Player" type="Area2D"]
 
 scale = Vector2( 1.5, 1.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -46,5 +58,10 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Punch = ExtResource( 6 )
 blend_times = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+position = Vector2( 0, 60.2776 )
+shape = SubResource( 1 )
 
 

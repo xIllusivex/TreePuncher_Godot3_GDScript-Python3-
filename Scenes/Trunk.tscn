@@ -9,11 +9,12 @@
 custom_solver_bias = 0.0
 radius = 44.0836
 
-[node name="Trunk" type="Node2D" index="0"]
+[node name="Trunk" type="Node2D"]
 
 scale = Vector2( 2, 2 )
+z_index = -2
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="TrunkMid" type="Sprite" parent="." index="0"]
 
@@ -21,7 +22,9 @@ z_index = 1
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="LeftAxe" type="Area2D" parent="." index="1"]
+[node name="LeftAxe" type="Area2D" parent="." index="1" groups=[
+"Axes",
+]]
 
 editor/display_folded = true
 position = Vector2( -80, -0.027159 )
@@ -47,7 +50,9 @@ position = Vector2( 0.311688, 0 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="RightAxe" type="Area2D" parent="." index="2"]
+[node name="RightAxe" type="Area2D" parent="." index="2" groups=[
+"Axes",
+]]
 
 editor/display_folded = true
 position = Vector2( 80, -0.027159 )

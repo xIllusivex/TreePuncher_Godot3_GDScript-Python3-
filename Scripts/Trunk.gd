@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 800
+var speed = 1500
 var direction = 1
 
 onready var sprite = $TrunkMid
@@ -35,7 +35,7 @@ func remove(fromRight):
 		direction = 1
 	timer.start()
 	set_process(true)
-
+	
 	
 func _on_Timer_timeout():
 	queue_free()
